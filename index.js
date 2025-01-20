@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const app = express();
-
 const http = require('http');
+
+const app = express();
 const server = http.createServer(app);
 
 // Middleware
@@ -11,9 +11,9 @@ app.use(cors());
 app.use(express.json());
 
 // Test route
-app.get('/', (req, res)=> {
-  res.send("server is running")
-})
+app.get("/", (req, res) => {
+  res.json({ message: "Sticky Notes API is running!" });
+});
 
 // Connect to MongoDB
 mongoose
