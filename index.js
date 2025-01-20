@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
+const http = require('http');
+const server = http.createServer(app);
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -31,8 +34,14 @@ const notesRoute = require("./API/Notes");
 app.use("/login", loginRoute); // Login-related routes
 app.use("/notes", notesRoute); // Notes-related routes
 
-// Start the server
+/* // Start the server locally
 const PORT = 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+}); */
+
+// Start the server Microsoft Azure
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
