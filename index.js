@@ -7,7 +7,7 @@ const http = require('http');
 const server = http.createServer(app);
 
 // Middleware
-app.use(cors());
+app.use(cors({origin: ["https://valdecanasapi.azurewebsites.net/Login", "http://localhost:5000"]}));
 app.use(express.json());
 
 // Test route
@@ -15,9 +15,12 @@ app.get('/', (req, res)=> {
   res.send("server is running")
 })
 
+const mongodb = "mongodb+srv://user-222:canCode01222@expressnodedb.61zaz.mongodb.net/";
+
+
 // Connect to MongoDB
 mongoose
-  .connect("mongodb+srv://user-222:canCode01222@expressnodedb.61zaz.mongodb.net/", {
+  .connect(mongodb, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
