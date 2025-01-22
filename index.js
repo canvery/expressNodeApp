@@ -9,6 +9,7 @@ const http = require('http');
 const server = http.createServer(app);
 
 // Middleware
+
 app.use(
   cors({
     origin: ["https://valdecanasapi.azurewebsites.net", "http://localhost:5000"],
