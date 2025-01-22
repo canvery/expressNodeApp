@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
+app.use(express.static('public'))
+
 const http = require('http');
 const server = http.createServer(app);
 
