@@ -7,14 +7,19 @@ const http = require('http');
 const server = http.createServer(app);
 
 // Middleware
-app.use(cors({origin: ["https://valdecanasapi.azurewebsites.net/login", "http://localhost:5000"]}));
-app.use(cors({origin: ["https://valdecanasapi.azurewebsites.net/notes", "http://localhost:5000"]}));
+app.use(
+  cors({
+    origin: ["https://valdecanasapi.azurewebsites.net", "http://localhost:5000"],
+  })
+);
+
 
 app.use(express.json());
 
 
-const loginUser = require("./API/login");
-const notesnote = require("./API/notes");
+const loginRoute = require("./API/Login");
+const notesRoute = require("./API/Notes");
+
 
 
 // Test route
