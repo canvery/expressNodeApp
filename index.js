@@ -8,6 +8,8 @@ const server = http.createServer(app);
 
 // Middleware
 app.use(cors({origin: ["https://valdecanasapi.azurewebsites.net/login", "http://localhost:5000"]}));
+app.use(cors({origin: ["https://valdecanasapi.azurewebsites.net/notes", "http://localhost:5000"]}));
+
 app.use(express.json());
 
 // Test route
