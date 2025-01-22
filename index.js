@@ -12,6 +12,11 @@ app.use(cors({origin: ["https://valdecanasapi.azurewebsites.net/notes", "http://
 
 app.use(express.json());
 
+
+const loginUser = require("./API/login");
+const notesnote = require("./API/notes");
+
+
 // Test route
 app.get('/', (req, res)=> {
   res.send("server is running")
