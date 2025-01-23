@@ -3,39 +3,21 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
-app.use(express.static('public'))
-
 const http = require('http');
 const server = http.createServer(app);
 
 // Middleware
-
-app.use(
-  cors({
-    origin: ["https://valdecanasapi.azurewebsites.net", "http://localhost:5000"],
-  })
-);
-
-
+app.use(cors());
 app.use(express.json());
-
-
-const loginRoute = require("./API/Login");
-const notesRoute = require("./API/Notes");
-
-
 
 // Test route
 app.get('/', (req, res)=> {
   res.send("server is running")
 })
 
-const mongodb = "mongodb+srv://user-222:canCode01222@expressnodedb.61zaz.mongodb.net/";
-
-
 // Connect to MongoDB
 mongoose
-  .connect(mongodb, {
+  .connect("mongodb+srv://user-222:canCode01222@expressnodedb.61zaz.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
